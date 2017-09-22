@@ -57,5 +57,24 @@ router.delete('/:id', function(req, res) {
   });
 });
 
+// POST /users/:id
+// Create a user
+router.post('/', function(req, res) {
+  var newUser = new User(req.body);
+  newUser.save(function(err, user) {
+    if (err) {
+      return res.status(500).json({
+        error: "Error adding user: " + err
+      });
+    }
+
+    if (!user) {
+      return res.status(404).end();
+    }
+
+    res.json( user );
+  });
+});
+
 
 module.exports = router;
