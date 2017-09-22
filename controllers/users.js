@@ -77,4 +77,25 @@ router.post('/', function(req, res) {
 });
 
 
+// PUT /users/:id
+// Update a user by id
+router.put('/:id', function(req, res) {
+  User.findOneAndUpdate({
+    _id: req.params.id
+  },  req.body, {new: true},function(err, user) {
+    if (err) {
+      return res.status(500).json({
+        error: "Error updating user: " + err
+      });
+    }
+
+    if (!user) {
+      return res.status(404).end();
+    }
+
+    res.json( user );
+  });
+});
+
+
 module.exports = router;
