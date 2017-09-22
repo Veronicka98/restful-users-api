@@ -6,7 +6,7 @@
   "author": "Red Hat",
   "license": "MIT",
   "scripts": {
-    "start": "node ./app.js",
+    "start": "nodemon ./app.js --exec babel-node --presets es2015,stage-2",
     "seed": "node ./seed/seed.js",
     "test": "./node_modules/mocha/bin/mocha ./tests/accept/*.js --timeout 15000"
   },
@@ -21,8 +21,12 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
-    "mocha": "^3.0.2"
+    "mocha": "^3.0.2",
+    "nodemon": "^1.12.1"
   }
 }
