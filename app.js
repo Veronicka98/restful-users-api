@@ -17,6 +17,7 @@ app.use(morgan('dev'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
 app.get('/', function(req, res, err) { // eslint-disable-line no-unused-vars
   var md = function(filename) {
     var path = __dirname + "/" + filename;
